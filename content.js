@@ -8,13 +8,12 @@ function changed() {
         fetch(url)
             .then(data => data.text())
             .then(html => {
-                // console.log(html);
-                console.log(document.querySelector("body")).appendChild(
-                    document.createElement("<div id='underscoreBlameHtmlPage' style='display: none;'></div>")
-                );
-                // document.querySelector("#underscoreBlameHtmlPage").innerHTML = html;
-
-            
+                console.log(html);
+                const div = document.createElement("DIV");
+                div.style.display = "none";
+                div.id = "blameHTML";
+                document.querySelector("body").appendChild(div);
+                document.querySelector("#blameHTML").innerHTML = html;
             });
     }
 }
