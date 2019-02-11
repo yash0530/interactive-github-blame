@@ -10,7 +10,6 @@
       ],
     "content_scripts": [{
         "js": [
-            "request_html.js",
             "content.js",
             "blame.js",
             "blob.js"

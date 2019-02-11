@@ -1,4 +1,5 @@
 let colorIndex = 0;
+const colorsLength = 147;
 const blameAssociation = {};
 const allColors = ["Red", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond",
     "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate",
@@ -27,12 +28,18 @@ function setBlames() {
     let trs = tbody.children;
 
     for (let i = 0; i < trs.length; i++) {
-        let blameDetails = getBlameDetails(trs[i].firstChild.id);
-        console.log(blameDetails);
+        let blameDetails = getBlameDetails(trs[i].children[0].id);
+
+        if (!blameAssociation[blameDetails.avatar]) {
+            console.log(blameDetails);
+            if (colorIndex === 147) colorIndex = 0;
+            blameAssociation[blameDetails.avatar] = blameDetails;
+            blameAssociation[blameDetails.avatar].color = allColors[colorIndex++];
+        }
 
         let blame = document.createElement("TD");
+        blame.style.backgroundColor = blameAssociation[blameDetails.avatar].color;
         blame.classList.add("blame-details");
-        blame.style.backgroundColor = allColors[colorIndex];
         
         trs[i].prepend(blame);
     }
@@ -40,5 +47,5 @@ function setBlames() {
 
 // mock function
 function getBlameDetails(x) {
-    return x;
+    return { avatar: x};
 }
