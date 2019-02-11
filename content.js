@@ -17,6 +17,12 @@ function changed() {
                 // Access using line id, as shown below
                 // TODO: Parse the received JSON, and render accordingly
                 console.log(blameDetails("L1"));
+                console.log(blameDetails("L4")['avatar_src'])
+                console.log(blameDetails("L4")['commit_link'])
+                console.log(blameDetails("L4")['commit_msg'])
+                console.log(blameDetails("L4")['reblame'])
+                console.log(blameDetails("L4")['time'])
+                console.log(blameDetails("L4")['user_link'])
 
             };
             xhr.onerror = function () {
