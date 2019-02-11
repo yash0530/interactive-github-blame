@@ -14,6 +14,7 @@ function changed() {
                 div.id = "blameHTML";
                 document.querySelector("body").appendChild(div);
                 document.querySelector("#blameHTML").innerHTML = html;
+                setBlames();
             });
     }
 }

@@ -6,7 +6,7 @@
     "description": "A browser extension for interactive in place github blame",
   
     "content_scripts": [{
-        "js": ["content.js"],
+        "js": ["content.js", "blob.js"],
         "css": ["styles.css"],
         "matches": ["https://github.com/*"]
     }]
