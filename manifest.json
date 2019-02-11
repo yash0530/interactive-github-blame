@@ -4,10 +4,18 @@
     "name": "Interactive Github Blame",
     "version": "0.1.0",
     "description": "A browser extension for interactive in place github blame",
-  
+    "permissions": [
+        "https://github.com/",
+        "http://github.com/"
+      ],
     "content_scripts": [{
-        "js": ["content.js", "blob.js"],
+        "js": [
+            "request_html.js",
+            "content.js",
+            "blame.js",
+            "blob.js"
+        ],
         "css": ["styles.css"],
-        "matches": ["https://github.com/*"]
+        "matches": ["https://github.com/*", "http://github.com/*"]
     }]
 }
