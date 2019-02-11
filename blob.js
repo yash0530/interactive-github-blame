@@ -1,7 +1,7 @@
 let colorIndex = 0;
-const colorsLength = 147;
+const colorsLength = 142;
 const blameAssociation = {};
-const allColors = ["Red", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond",
+const allColors = ["Red", "Aqua", "Bisque", "Black",    
     "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate",
     "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod",
     "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange",
@@ -24,7 +24,7 @@ const allColors = ["Red", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige"
 ]
 
 function setBlames() {
-    let tbody = document.querySelector("tbody");
+    let tbody = document.querySelector("#L1").parentElement.parentElement;
     let trs = tbody.children;
 
     for (let i = 0; i < trs.length; i++) {
@@ -32,7 +32,7 @@ function setBlames() {
 
         if (!blameAssociation[blameDetails.avatar]) {
             console.log(blameDetails);
-            if (colorIndex === 147) colorIndex = 0;
+            if (colorIndex === colorsLength) colorIndex = 0;
             blameAssociation[blameDetails.avatar] = blameDetails;
             blameAssociation[blameDetails.avatar].color = allColors[colorIndex++];
         }
@@ -43,6 +43,8 @@ function setBlames() {
         
         trs[i].prepend(blame);
     }
+
+    document.getElementById("blameHTML").remove();
 }
 
 // mock function
