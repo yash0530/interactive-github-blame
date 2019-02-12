@@ -1,6 +1,6 @@
 let colorIndex = 0;
 const colorsLength = 142;
-const blameAssociation = {};
+let blameAssociation = {};
 const allColors = ["Red", "Aqua", "Bisque", "Black",    
     "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate",
     "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod",
@@ -24,30 +24,29 @@ const allColors = ["Red", "Aqua", "Bisque", "Black",
 ]
 
 function setBlames() {
+
+    blameAssociation = {};
+    colorIndex = 0;
+
     let tbody = document.querySelector("#L1").parentElement.parentElement;
     let trs = tbody.children;
 
     for (let i = 0; i < trs.length; i++) {
         let blameDetails = getBlameDetails(trs[i].children[0].id);
 
-        if (!blameAssociation[blameDetails.avatar]) {
+        if (!blameAssociation[blameDetails.user_link]) {
             console.log(blameDetails);
             if (colorIndex === colorsLength) colorIndex = 0;
-            blameAssociation[blameDetails.avatar] = blameDetails;
-            blameAssociation[blameDetails.avatar].color = allColors[colorIndex++];
+            blameAssociation[blameDetails.user_link] = blameDetails;
+            blameAssociation[blameDetails.user_link].color = allColors[colorIndex++];
         }
 
         let blame = document.createElement("TD");
-        blame.style.backgroundColor = blameAssociation[blameDetails.avatar].color;
+        blame.style.backgroundColor = blameAssociation[blameDetails.user_link].color;
         blame.classList.add("blame-details");
         
         trs[i].prepend(blame);
     }
 
     document.getElementById("blameHTML").remove();
-}
-
-// mock function
-function getBlameDetails(x) {
-    return { avatar: x};
 }

@@ -7,7 +7,7 @@
     "permissions": [
         "https://github.com/",
         "http://github.com/"
-      ],
+    ],
     "content_scripts": [{
         "js": [
             "content.js",

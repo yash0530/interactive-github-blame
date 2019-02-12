@@ -10,21 +10,25 @@ function set_dom(html) {
     if (blames.length == 1) {
         container = blames[0];
     } else {
-        console.error("Multiple 'blame-container's")
+        console.error("Multiple 'blame-container's");
     }
 }
-function blameDetails(line_id) {
-    let super_parent = container.querySelector("#"+line_id).parentNode.parentNode.parentNode;
-    blame_commit = super_parent.querySelector(".blame-commit")
-    blame_reblame = super_parent.querySelector(".blame-reblame")
 
-    // WIP
-    // all will be nested dictionaries
-    let data = {
-        'avatar':'avatar',
-        'commit':'commit',
-        'time':'time',
-        'reblame':'reblame'
-    }
+function getBlameDetails(line_id) {
+    let super_parent = container.querySelector("#"+line_id).parentNode.parentNode.parentNode;
+    blame_commit = super_parent.querySelector(".blame-commit");
+
+    avatar = blame_commit.querySelector(".avatar");
+    user_link = "https://github.com" + avatar.getAttribute("href");
+    avatar_src = avatar.querySelector("img").getAttribute("src");
+
+    content = blame_commit.querySelector(".message");
+    commit_msg = content.innerText;
+    commit_link = "https://github.com" + content.getAttribute("href");
+
+    time = blame_commit.querySelector("time-ago").getAttribute("datetime");
+    time = new Date(time).toString();
+    
+    let data = { avatar_src, user_link, commit_msg, commit_link, time }
     return data
 }
