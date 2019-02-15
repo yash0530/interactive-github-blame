@@ -1,3 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .blame-details {
     width: 5px;
+}
+
+.box-interactive-github-blame {
+    display: none;
+    position: absolute;
+    top: 30px; 
+    left: 10px;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #888;
+    font-family: 'Lato' !important;
+    border-radius: 7px;
+}
+
+.interactive-github-blame:hover + .box-interactive-github-blame {
+    display: flex;
+    flex-direction: column;
+}
+
+.interactive-github-blame:hover + .box-interactive-github-blame .commit-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 200px;
+    max-width: 600px;
+    align-items: flex-end;
+}
+
+.interactive-github-blame:hover + .box-interactive-github-blame .user-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.hr-interactive-github-blame {
+    width: 100%;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

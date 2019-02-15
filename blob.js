@@ -1,8 +1,7 @@
 let colorIndex = 0;
-const colorsLength = 142;
 let blameAssociation = {};
-const allColors = ["Red", "Aqua", "Bisque", "Black",    
-    "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate",
+const allColors = ["Red", "Blue", "BlueViolet", "Black", "Aqua", "Bisque",    
+    "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate",
     "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod",
     "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange",
     "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey",
@@ -22,6 +21,7 @@ const allColors = ["Red", "Aqua", "Bisque", "Black",
     "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke",
     "Yellow", "YellowGreen"
 ]
+const colorsLength = allColors.length;
 
 function setBlames() {
 
@@ -32,10 +32,11 @@ function setBlames() {
     let trs = tbody.children;
 
     for (let i = 0; i < trs.length; i++) {
-        let blameDetails = getBlameDetails(trs[i].children[0].id);
+        const id = trs[i].children[0].id;
+        let blameDetails = getBlameDetails(id);
+        setBlameDetailsPopup(blameDetails, id);
 
         if (!blameAssociation[blameDetails.user_link]) {
-            console.log(blameDetails);
             if (colorIndex === colorsLength) colorIndex = 0;
             blameAssociation[blameDetails.user_link] = blameDetails;
             blameAssociation[blameDetails.user_link].color = allColors[colorIndex++];
@@ -47,6 +48,6 @@ function setBlames() {
         
         trs[i].prepend(blame);
     }
-
     document.getElementById("blameHTML").remove();
+    setTooltipListeners();
 }

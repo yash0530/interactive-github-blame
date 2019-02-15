@@ -26,9 +26,10 @@ function getBlameDetails(line_id) {
     commit_msg = content.innerText;
     commit_link = "https://github.com" + content.getAttribute("href");
 
-    time = blame_commit.querySelector("time-ago").getAttribute("datetime");
-    time = new Date(time).toString();
+    time = blame_commit.querySelector("time-ago").innerText;
+
+    name = user_link.replace("https://github.com/", "");
     
-    let data = { avatar_src, user_link, commit_msg, commit_link, time }
+    let data = { avatar_src, user_link, commit_msg, commit_link, time, name }
     return data
 }

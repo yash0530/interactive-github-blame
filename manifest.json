@@ -12,7 +12,8 @@
         "js": [
             "content.js",
             "blame.js",
-            "blob.js"
+            "blob.js",
+            "blamePopup.js"
         ],
         "css": ["styles.css"],
         "matches": ["https://github.com/*", "http://github.com/*"]

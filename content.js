@@ -8,6 +8,7 @@ function changed() {
         fetch(url)
             .then(data => data.text())
             .then(html => {
+                addHeaders();
                 set_dom(html);
                 setBlames();
             })
