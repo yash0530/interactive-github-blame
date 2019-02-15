@@ -5,7 +5,8 @@
 }
 
 .box-interactive-github-blame {
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 30px; 
     left: 10px;
@@ -16,12 +17,7 @@
     border-radius: 7px;
 }
 
-.interactive-github-blame:hover + .box-interactive-github-blame {
-    display: flex;
-    flex-direction: column;
-}
-
-.interactive-github-blame:hover + .box-interactive-github-blame .commit-details {
+.interactive-github-blame + .box-interactive-github-blame .commit-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,7 +26,7 @@
     align-items: flex-end;
 }
 
-.interactive-github-blame:hover + .box-interactive-github-blame .user-details {
+.interactive-github-blame + .box-interactive-github-blame .user-details {
     display: flex;
     flex-direction: row;
 }

@@ -10,12 +10,18 @@
     ],
     "content_scripts": [{
         "js": [
+            "libs/scripts/jQuery.js",
+            "libs/scripts/tooltipster.js",
             "content.js",
             "blame.js",
             "blob.js",
             "blamePopup.js"
         ],
-        "css": ["styles.css"],
+        "css": [
+            "libs/styles/tooltipster.css",
+            "libs/styles/tooltipster-light.css",
+            "styles.css"
+        ],
         "matches": ["https://github.com/*", "http://github.com/*"]
     }]
 }
