@@ -1,5 +1,25 @@
 # Interactive Github Blame
+A browser extension for interactive in place github blame
 
-## Collaborators
-* [Yash Jain](https://github.com/yash0530)
-* [Aliabbas Merchant](https://github.com/AliabbasMerchant)
+## Try It
+* Clone the repo
+```
+git clone https://github.com/yash0530/interactive-github-blame.git
+```
+* Add extension
+```
+Open Google Chrome
+Go to chrome://extensions
+Drag and drop the repo here
+```
+```
+Restart the browser
+Extension is installed!
+```
+
+## Features
+* Colours strips are used to represent the blame for lines in the file
+* Hovering on the line numbers will disclose the blame associated with the particular line and details of the commit and collaborator will be presented.
+
+## Version
+* Initial Build 0.1.0
