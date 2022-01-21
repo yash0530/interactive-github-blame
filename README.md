@@ -23,3 +23,7 @@ Extension is installed!
 
 ## Version
 * Initial Build 0.1.0
+
+```
+PS: 3 years later; still works xD
+```
